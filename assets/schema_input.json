@@ -167,7 +167,7 @@
                 "anyOf": [
                     {
                         "type": "string",
-                        "pattern": "^\\S+\\.vcf(\\.gz)?$"
+                        "pattern": "^\\S+\\.(vcf|sample_map)(\\.gz)?$"
                     },
                     {
                         "type": "string",
