@@ -1166,6 +1166,7 @@ workflow SAREK {
             known_sites_snps,
             known_sites_snps_tbi,
             known_snps_vqsr,
+            params.input_map, 
             params.joint_germline,
             params.skip_tools && params.skip_tools.split(',').contains('haplotypecaller_filter'), // true if filtering should be skipped
             params.sentieon_haplotyper_emit_mode)
