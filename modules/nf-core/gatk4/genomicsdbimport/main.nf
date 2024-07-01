@@ -1,5 +1,6 @@
 process GATK4_GENOMICSDBIMPORT {
-    tag "$meta.id"
+    tag "$task.ext.prefix"
+    //tag "$meta.id"
     //label 'process_medium'
 
     conda "bioconda::gatk4=4.4.0.0"
@@ -14,9 +15,10 @@ process GATK4_GENOMICSDBIMPORT {
     val   input_map
 
     output:
-    tuple val(meta), path("$prefix")        , optional:true, emit: genomicsdb
+    tuple val(meta), path("$prefix"), path(interval_file), optional:true, emit: genomicsdb
     tuple val(meta), path("$updated_db")    , optional:true, emit: updatedb
-    tuple val(meta), path("*.interval_list"), optional:true, emit: intervallist
+    //tuple val(meta), path("*.interval_list"), optional:true, emit: intervallist
+    tuple val(meta), path("*.bed"), optional:true, emit: intervallist
     path "versions.yml"                                    , emit: versions
 
     when:
